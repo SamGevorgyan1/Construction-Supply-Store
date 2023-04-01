@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Construction supply store</string>
+    <string name="price" translatable="false">Գինը</string>
+    <string name="code" translatable="false">Կոդ</string>
+    <string name="save" translatable="false">Պահպանել</string>
+    <string name="count" translatable="false">Քանակ</string>
+</resources>

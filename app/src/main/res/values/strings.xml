@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Construction supply store</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="enter_product_details" translatable="false">Enter product details</string>
+    <string name="name" translatable="false">Name</string>
+    <string name="company_name" translatable="false">Company name</string>
+    <string name="count">Count</string>
+    <string name="initial_price" translatable="false">Initial price</string>
+    <string name="price">Price</string>
+    <string name="code">Code</string>
+    <string name="save">Save</string>
+    <string name="change_product_details" translatable="false">Change product details</string>
+    <string name="change" translatable="false">Change</string>
+</resources>

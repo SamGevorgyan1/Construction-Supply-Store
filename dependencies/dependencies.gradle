@@ -1,0 +1,68 @@
+ext {
+
+    version = [
+            "retrofitVersion"      : '2.9.0 ',
+            "retrofitGsonConverter": '2.9.0',
+            "gson"                 : '2.8.9',
+            "okhttp"               : '4.9.1',
+            "navigation"           : '2.5.3',
+            "koin_version"         : '3.2.2',
+            "koin android version" : '3.3.0',
+            "cardView"             : '1.0.0',
+            "lifecycle"            : '2.5.1',
+            "swiperefreshlayout"   : '1.1.0'
+
+
+
+    ]
+
+
+    networkDependencies = [
+            retrofit             : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${version.retrofitGsonConverter}"
+    ]
+    gsonDependencies = [
+            gson: "com.google.code.gson:gson:${version.gson}"
+    ]
+
+    okhttpDependencies = [
+            okhttp: "com.squareup.okhttp3:okhttp:${version.okhttp}"
+    ]
+    koinDependences = [
+            // Koin Core features
+            implementation         : "io.insert-koin:koin-core:${version.koin_version}",//koin version
+            // Koin Test features
+            testImplementation     : "io.insert-koin:koin-test:${version.koin_version}",//koin version
+
+            // Koin main features for Android
+            koinAndroid            : 'io.insert-koin:koin-android:3.3.0',//koin android version
+
+
+            // Java Compatibility
+            koinAndroidCompat      : 'io.insert-koin:koin-android-compat:3.3.0',//koin android version
+            // Jetpack WorkManager
+            koinAndroidxWorkmanager: 'io.insert-koin:koin-androidx-workmanager:3.3.0',//koin android version
+            // Navigation Graph
+            koinAndroidxNavigation : 'io.insert-koin:koin-androidx-navigation:3.3.0',//koin android version
+    ]
+
+
+    navigationJetpackDependencies = [
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:${version.navigation}",
+            navigation        : "androidx.navigation:navigation-ui-ktx:${version.navigation}"
+    ]
+
+    cardViewDependencies = [
+            cardView: "androidx.cardview:cardview:${version.cardView}"
+    ]
+    lifecycleDependencies = [
+            lifecycle: "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycle}"
+    ]
+    swiperefreshlayoutDependencies = [
+            swiperefreshlayout: "androidx.swiperefreshlayout:swiperefreshlayout:${version.swiperefreshlayout}"
+    ]
+
+    fireBaseDependencies = [
+            implementation: 'com.google.firebase:firebase-firestore-ktx:24.4.4'
+    ]
+}

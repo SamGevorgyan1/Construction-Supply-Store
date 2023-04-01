@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "734946779333",
+    "project_id": "construction-supply-store",
+    "storage_bucket": "construction-supply-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734946779333:android:c9e624b2e0f089ae9690ac",
+        "android_client_info": {
+          "package_name": "com.product"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734946779333-0qt4at6vbu7lkbju14bdfkb42mn61blp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg4BqyMv1lYnm0y23NDl4g3XJS07PBQFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734946779333-0qt4at6vbu7lkbju14bdfkb42mn61blp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734946779333:android:2facadf5a7e442a29690ac",
+        "android_client_info": {
+          "package_name": "com.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734946779333-0qt4at6vbu7lkbju14bdfkb42mn61blp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg4BqyMv1lYnm0y23NDl4g3XJS07PBQFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734946779333-0qt4at6vbu7lkbju14bdfkb42mn61blp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

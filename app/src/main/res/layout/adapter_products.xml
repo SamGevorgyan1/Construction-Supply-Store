@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        android:background="@drawable/shape_radius"
+        >
+
+        <TextView
+            android:id="@+id/product_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:text="Հայելի"
+            android:textSize="20sp"
+            style="@style/product_data_title_style"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/firma_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:text="Firma"
+            app:layout_constraintStart_toStartOf="@id/product_name_title"
+            app:layout_constraintTop_toBottomOf="@+id/product_name_title" />
+
+        <TextView
+            android:id="@+id/firma_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/product_data_title_style"
+            android:layout_marginStart="5dp"
+            android:text="Total"
+            app:layout_constraintBottom_toBottomOf="@id/firma_title"
+            app:layout_constraintStart_toEndOf="@id/firma_title"
+            app:layout_constraintTop_toTopOf="@id/firma_title" />
+
+        <TextView
+            android:id="@+id/code_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Code"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/firma_title"
+            app:layout_constraintTop_toBottomOf="@id/firma_title" />
+
+        <TextView
+            android:id="@+id/product_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            style="@style/product_data_title_style"
+            android:text="12345"
+            app:layout_constraintBottom_toBottomOf="@id/code_title"
+            app:layout_constraintStart_toEndOf="@+id/code_title"
+            app:layout_constraintTop_toTopOf="@id/code_title" />
+
+        <TextView
+            android:id="@+id/product_count_title"
+            style="@style/product_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Count"
+            app:layout_constraintStart_toStartOf="@id/firma_title"
+            app:layout_constraintTop_toBottomOf="@id/code_title" />
+
+        <TextView
+            android:id="@+id/product_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="10"
+            style="@style/product_data_title_style"
+            app:layout_constraintBottom_toBottomOf="@id/product_count_title"
+            app:layout_constraintStart_toEndOf="@id/product_count_title"
+            app:layout_constraintTop_toTopOf="@id/product_count_title" />
+
+        <TextView
+            android:id="@+id/initial_price_title"
+            style="@style/product_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initial price"
+
+            app:layout_constraintStart_toStartOf="@id/firma_title"
+            app:layout_constraintTop_toBottomOf="@id/product_count_title" />
+
+        <TextView
+            android:id="@+id/product_initial_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="10000"
+            style="@style/product_data_title_style"
+            app:layout_constraintBottom_toBottomOf="@id/initial_price_title"
+            app:layout_constraintStart_toEndOf="@id/initial_price_title"
+            app:layout_constraintTop_toTopOf="@id/initial_price_title" />
+
+        <TextView
+            android:id="@+id/product_price_title"
+            style="@style/product_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            app:layout_constraintStart_toStartOf="@id/firma_title"
+            app:layout_constraintTop_toBottomOf="@id/initial_price_title" />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="12000"
+            style="@style/product_data_title_style"
+            app:layout_constraintBottom_toBottomOf="@id/product_price_title"
+            app:layout_constraintStart_toEndOf="@id/product_price_title"
+            app:layout_constraintTop_toTopOf="@id/product_price_title" />
+
+        <TextView
+            android:id="@+id/btn_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/btn_change"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_change"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="5dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
