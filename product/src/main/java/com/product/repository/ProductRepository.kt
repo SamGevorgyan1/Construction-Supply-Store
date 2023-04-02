@@ -49,7 +49,7 @@ class ProductRepositoryImpl : ProductRepository {
 
     override fun deleteData(productData: ProductData) {
         productData.code?.let { it ->
-            getDocumentId(fieldValue = it, fieldName = "code") { documentId ->
+            getDocumentId(fieldValue = it, fieldName = CODE) { documentId ->
                 val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
                 docRef?.delete()
             }

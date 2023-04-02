@@ -10,8 +10,7 @@ import com.constructionsupplystore.ui.fragment.AddProductFragment
 import com.constructionsupplystore.ui.fragment.ProductsFragment
 
 
-
-class MainActivity : BaseCommonActivity(){
+class MainActivity : BaseCommonActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
