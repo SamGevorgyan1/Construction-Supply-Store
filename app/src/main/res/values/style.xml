@@ -16,6 +16,7 @@
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">5dp</item>
+        <item name="android:textColorHint">@color/red</item>
     </style>
 
     //adapter_product layout

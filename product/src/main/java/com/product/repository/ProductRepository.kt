@@ -30,12 +30,11 @@ class ProductRepositoryImpl : ProductRepository {
 
     private val db = FirebaseFirestore.getInstance()
 
-
-
     override fun getProduct(resultCallBack: ResultCallBack<ProductData>) {
         db.collection(COLLECTION_PATH).get()
             .addOnSuccessListener { result ->
-                val productList = result.documents.mapNotNull { it.toObject(ProductData::class.java) }
+                val productList =
+                    result.documents.mapNotNull { it.toObject(ProductData::class.java) }
                 resultCallBack.onSuccess(productList)
             }
             .addOnFailureListener { exception ->
@@ -44,18 +43,22 @@ class ProductRepositoryImpl : ProductRepository {
     }
 
     override fun addProduct(productData: ProductData) {
-        db.collection(COLLECTION_PATH).add(createHashMap(productData))
+
+            db.collection(COLLECTION_PATH).add(createHashMap(productData))
     }
 
     override fun deleteData(productData: ProductData) {
-        getDocumentId(fieldValue = productData.name.toString()) { documentId ->
-            val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
-            docRef?.delete()
+        productData.code?.let { it ->
+            getDocumentId(fieldValue = it, fieldName = "code") { documentId ->
+                val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
+                docRef?.delete()
+            }
         }
     }
 
     override fun changeData(productData: ProductData, fieldValue: String) {
         getDocumentId(fieldValue = fieldValue) { documentId ->
+
             val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
             docRef?.update(createHashMap(productData))
         }
@@ -79,7 +82,7 @@ class ProductRepositoryImpl : ProductRepository {
                     callback(document.id)
                 }
             }.addOnFailureListener { exception ->
-                Log.e("Error document ID:",exception.toString())
+                Log.e("Error document ID:", exception.toString())
                 callback(null)
             }
     }

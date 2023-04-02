@@ -25,7 +25,7 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
             }
 
             override fun onError(msg: Exception) {
-                Log.e("error","error")
+                Log.e("error", "error")
             }
         })
     }
@@ -34,9 +34,15 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
 
     fun deleteData(productData: ProductData) = productRepository.deleteData(productData)
 
-    fun changeData(productData: ProductData, fieldValue: String) = productRepository.changeData(productData,fieldValue)
+    fun changeData(productData: ProductData, fieldValue: String) =
+        productRepository.changeData(productData, fieldValue)
 
-    fun getDocumentId(collectionPath: String, fieldValue: Any, fieldName: String, callback: (String?) -> Unit){
+    fun getDocumentId(
+        collectionPath: String,
+        fieldValue: Any,
+        fieldName: String,
+        callback: (String?) -> Unit
+    ) {
         productRepository.getDocumentId(collectionPath, fieldValue, fieldName, callback)
     }
 }

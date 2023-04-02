@@ -18,6 +18,7 @@ class AddProductFragment : Fragment() {
     private lateinit var binding: FragmentAddProductBinding
     private val viewModel by viewModel<ProductViewModel>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +32,14 @@ class AddProductFragment : Fragment() {
 
         binding.btnAddProduct.setOnClickListener {
             with(binding) {
+                val editTexts = arrayOf(
+                    edtProductName,
+                    edtProductFirma,
+                    edtProductCode,
+                    edtProductCount,
+                    edtProductInitialPrice,
+                    edtProductPrice
+                )
                 val productData = ProductData(
                     edtProductName.text.toString(),
                     edtProductFirma.text.toString(),
@@ -39,12 +48,27 @@ class AddProductFragment : Fragment() {
                     edtProductInitialPrice.text.toString(),
                     edtProductPrice.text.toString()
                 )
+                var allEditTextsFilled = true
+                editTexts.forEach { editText ->
+                    if (editText.text.isNullOrEmpty()) {
+                        allEditTextsFilled = false
+                        return@forEach
+                    }
+                }
 
-                viewModel.addProduct(productData)
+                if (allEditTextsFilled) {
+                    viewModel.addProduct(productData)
+                    editTexts.forEach { it.text?.clear() }
+                    Toast.makeText(requireContext(), "Product saved", Toast.LENGTH_SHORT).show()
+                } else {
+                    editTexts.forEach {
+                        if (it.text.isNullOrEmpty()) {
+                            it.hint = "has no value"
+                        }
 
-                arrayOf(edtProductName, edtProductFirma, edtProductCode, edtProductCount, edtProductInitialPrice, edtProductPrice).forEach { it.text?.clear() }
+                    }
+                }
             }
-            Toast.makeText(requireContext(), "Product saved", Toast.LENGTH_SHORT).show()
         }
     }
 }
