@@ -2,18 +2,18 @@ package com.constructionsupplystore.ui.fragment
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.common.BaseCommonFragment
 import com.product.data.ProductData
 import com.constructionsupplystore.databinding.FragmentAddProductBinding
 import com.constructionsupplystore.viewmodel.ProductViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class AddProductFragment : Fragment() {
+class AddProductFragment : BaseCommonFragment() {
 
     private lateinit var binding: FragmentAddProductBinding
     private val viewModel by viewModel<ProductViewModel>()
@@ -29,9 +29,14 @@ class AddProductFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setListener()
 
+    }
+
+    private fun setListener() {
         binding.btnAddProduct.setOnClickListener {
             with(binding) {
+
                 val editTexts = arrayOf(
                     edtProductName,
                     edtProductFirma,
@@ -40,23 +45,13 @@ class AddProductFragment : Fragment() {
                     edtProductInitialPrice,
                     edtProductPrice
                 )
-                val productData = ProductData(
-                    edtProductName.text.toString(),
-                    edtProductFirma.text.toString(),
-                    edtProductCode.text.toString(),
-                    edtProductCount.text.toString(),
-                    edtProductInitialPrice.text.toString(),
-                    edtProductPrice.text.toString()
-                )
-                var allEditTextsFilled = true
-                editTexts.forEach { editText ->
-                    if (editText.text.isNullOrEmpty()) {
-                        allEditTextsFilled = false
-                        return@forEach
-                    }
-                }
 
-                if (allEditTextsFilled) {
+                val productData = ProductData(
+                    edtProductName.text.toString(), edtProductFirma.text.toString(),
+                    edtProductCode.text.toString(), edtProductCount.text.toString(),
+                    edtProductInitialPrice.text.toString(), edtProductPrice.text.toString()
+                )
+                if (checkEdtText(editTexts)) {
                     viewModel.addProduct(productData)
                     editTexts.forEach { it.text?.clear() }
                     Toast.makeText(requireContext(), "Product saved", Toast.LENGTH_SHORT).show()
@@ -64,11 +59,12 @@ class AddProductFragment : Fragment() {
                     editTexts.forEach {
                         if (it.text.isNullOrEmpty()) {
                             it.hint = "has no value"
-                        }
 
+                        }
                     }
                 }
             }
         }
+
     }
 }

@@ -51,5 +51,7 @@ class ChangeProductFragment : com.common.BaseCommonFragment() {
             )
             replaceFragment(R.id.flFragment, ProductsFragment())
         }
+
+
     }
 }
