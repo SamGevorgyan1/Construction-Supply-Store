@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.common.BaseCommonFragment
+import com.common.basecommon.BaseCommonFragment
 import com.constructionsupplystore.R
-import com.product.data.ProductData
+import com.data.ProductData
 import com.constructionsupplystore.databinding.FragmentChangeProductBinding
 import com.constructionsupplystore.utils.ConstantsKey.KEY_OBJECT_PRODUCT_DATA
-import com.constructionsupplystore.viewmodel.ProductViewModel
+import com.constructionsupplystore.ui.viewmodel.ProductViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChangeProductFragment : BaseCommonFragment() {

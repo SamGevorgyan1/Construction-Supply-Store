@@ -1,4 +1,4 @@
-package com.common
+package com.common.basecommon
 
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment

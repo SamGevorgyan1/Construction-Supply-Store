@@ -3,7 +3,7 @@ package com.constructionsupplystore
 
 import com.common.BaseCommonApplication
 import com.constructionsupplystore.di.appModule
-import com.product.di.productModule
+import com.di.productModule
 import org.koin.core.module.Module
 
 class AppApplication: BaseCommonApplication() {

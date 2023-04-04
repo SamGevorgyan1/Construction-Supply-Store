@@ -1,6 +1,6 @@
-package com.product
+package com
 
-import com.product.data.ProductData
+import com.data.ProductData
 import java.lang.Exception
 
 interface ResultCallBack<T> {

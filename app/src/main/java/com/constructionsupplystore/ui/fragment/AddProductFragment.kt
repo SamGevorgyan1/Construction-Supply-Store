@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.common.BaseCommonFragment
-import com.product.data.ProductData
+import com.common.basecommon.BaseCommonFragment
+import com.data.ProductData
 import com.constructionsupplystore.databinding.FragmentAddProductBinding
-import com.constructionsupplystore.viewmodel.ProductViewModel
+import com.constructionsupplystore.ui.viewmodel.ProductViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

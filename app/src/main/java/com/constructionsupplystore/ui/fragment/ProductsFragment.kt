@@ -3,14 +3,14 @@ package com.constructionsupplystore.ui.fragment
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
-import com.common.BaseCommonFragment
+import com.common.basecommon.BaseCommonFragment
 import com.constructionsupplystore.listener.OnItemListener
 import com.constructionsupplystore.R
-import com.product.data.ProductData
+import com.data.ProductData
 import com.constructionsupplystore.databinding.FragmentProductsBinding
 import com.constructionsupplystore.ui.adapter.ProductAdapter
 import com.constructionsupplystore.utils.ConstantsKey.KEY_OBJECT_PRODUCT_DATA
-import com.constructionsupplystore.viewmodel.ProductViewModel
+import com.constructionsupplystore.ui.viewmodel.ProductViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

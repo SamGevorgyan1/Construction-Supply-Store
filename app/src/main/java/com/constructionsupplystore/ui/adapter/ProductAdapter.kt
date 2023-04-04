@@ -10,7 +10,7 @@ import android.widget.Filterable
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.constructionsupplystore.listener.OnItemListener
-import com.product.data.ProductData
+import com.data.ProductData
 import com.constructionsupplystore.databinding.AdapterProductsBinding
 import java.util.*
 

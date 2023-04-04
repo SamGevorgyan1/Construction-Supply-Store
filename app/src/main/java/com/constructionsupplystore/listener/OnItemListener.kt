@@ -1,6 +1,6 @@
 package com.constructionsupplystore.listener
 
-import com.product.data.ProductData
+import com.data.ProductData
 
 interface OnItemListener {
     fun onChangeItemClick(position: Int, productData: ProductData)

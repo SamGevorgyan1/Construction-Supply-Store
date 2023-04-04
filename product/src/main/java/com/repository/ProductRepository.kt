@@ -1,16 +1,16 @@
-package com.product.repository
+package com.repository
 
 import android.util.Log
-import com.product.data.ProductData
+import com.data.ProductData
 import com.google.firebase.firestore.FirebaseFirestore
-import com.product.ResultCallBack
-import com.product.utils.Constants.CODE
-import com.product.utils.Constants.COLLECTION_PATH
-import com.product.utils.Constants.COUNT
-import com.product.utils.Constants.FIRMA
-import com.product.utils.Constants.INITIAL_PRICE
-import com.product.utils.Constants.NAME
-import com.product.utils.Constants.PRICE
+import com.ResultCallBack
+import com.utils.Constants.CODE
+import com.utils.Constants.COLLECTION_PATH
+import com.utils.Constants.COUNT
+import com.utils.Constants.FIRMA
+import com.utils.Constants.INITIAL_PRICE
+import com.utils.Constants.NAME
+import com.utils.Constants.PRICE
 
 
 interface ProductRepository {

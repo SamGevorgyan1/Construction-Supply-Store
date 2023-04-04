@@ -1,13 +1,13 @@
-package com.product.viewmodel
+package com.viewmodel
 
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.product.data.ProductData
-import com.product.repository.ProductRepository
-import com.product.ResultCallBack
+import com.data.ProductData
+import com.repository.ProductRepository
+import com.ResultCallBack
 import java.lang.Exception
 
 

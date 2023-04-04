@@ -1,4 +1,4 @@
-package com.product.utils
+package com.utils
 
 object Constants {
     const val COLLECTION_PATH = "product"

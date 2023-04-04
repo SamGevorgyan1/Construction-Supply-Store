@@ -1,9 +1,9 @@
-package com.constructionsupplystore.ui.activity
+package com.constructionsupplystore.ui.main
 
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.common.BaseCommonActivity
+import com.common.basecommon.BaseCommonActivity
 import com.constructionsupplystore.R
 import com.constructionsupplystore.databinding.ActivityMainBinding
 import com.constructionsupplystore.ui.fragment.AddProductFragment
