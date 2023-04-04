@@ -37,12 +37,12 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
     fun changeData(productData: ProductData, fieldValue: String) =
         productRepository.changeData(productData, fieldValue)
 
+    /**
     fun getDocumentId(
         collectionPath: String,
         fieldValue: Any,
         fieldName: String,
         callback: (String?) -> Unit
-    ) {
-        productRepository.getDocumentId(collectionPath, fieldValue, fieldName, callback)
-    }
+    ) = productRepository.getDocumentId(collectionPath, fieldValue, fieldName, callback)
+**/
 }

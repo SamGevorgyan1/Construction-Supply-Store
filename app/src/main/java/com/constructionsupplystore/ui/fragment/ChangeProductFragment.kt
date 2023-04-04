@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.common.BaseCommonFragment
 import com.constructionsupplystore.R
 import com.product.data.ProductData
 import com.constructionsupplystore.databinding.FragmentChangeProductBinding
@@ -11,7 +12,7 @@ import com.constructionsupplystore.utils.ConstantsKey.KEY_OBJECT_PRODUCT_DATA
 import com.constructionsupplystore.viewmodel.ProductViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ChangeProductFragment : com.common.BaseCommonFragment() {
+class ChangeProductFragment : BaseCommonFragment() {
 
     private lateinit var binding: FragmentChangeProductBinding
     private val viewModel by viewModel<ProductViewModel>()
@@ -51,7 +52,5 @@ class ChangeProductFragment : com.common.BaseCommonFragment() {
             )
             replaceFragment(R.id.flFragment, ProductsFragment())
         }
-
-
     }
 }

@@ -12,8 +12,6 @@ ext {
             "lifecycle"            : '2.5.1',
             "swiperefreshlayout"   : '1.1.0'
 
-
-
     ]
 
 

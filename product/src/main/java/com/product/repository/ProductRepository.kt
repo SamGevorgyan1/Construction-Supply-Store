@@ -44,7 +44,7 @@ class ProductRepositoryImpl : ProductRepository {
 
     override fun addProduct(productData: ProductData) {
 
-            db.collection(COLLECTION_PATH).add(createHashMap(productData))
+        db.collection(COLLECTION_PATH).add(createHashMap(productData))
     }
 
     override fun deleteData(productData: ProductData) {

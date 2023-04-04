@@ -29,11 +29,11 @@ class AddProductFragment : BaseCommonFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setListener()
+        setupListener()
 
     }
 
-    private fun setListener() {
+    private fun setupListener() {
         binding.btnAddProduct.setOnClickListener {
             with(binding) {
 
@@ -65,6 +65,5 @@ class AddProductFragment : BaseCommonFragment() {
                 }
             }
         }
-
     }
 }

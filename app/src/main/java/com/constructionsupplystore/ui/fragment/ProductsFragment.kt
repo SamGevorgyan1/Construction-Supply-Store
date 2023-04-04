@@ -75,8 +75,3 @@ class ProductsFragment : BaseCommonFragment(), OnItemListener {
         viewModel.getProduct()
     }
 }
-
-
-
-
-

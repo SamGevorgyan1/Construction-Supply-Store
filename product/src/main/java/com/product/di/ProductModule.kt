@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 fun productModule()= module {
 
-   // single<ProductRepository> { ProductRepositoryImpl() }
-    factory<ProductRepository> { ProductRepositoryImpl() }
+    single<ProductRepository> { ProductRepositoryImpl() }
+
 }

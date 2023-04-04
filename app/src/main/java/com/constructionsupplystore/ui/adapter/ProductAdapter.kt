@@ -53,14 +53,14 @@ class ProductAdapter(val onItemListener: OnItemListener) :
     inner class ViewHolder(private val binding: AdapterProductsBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
-        fun bind(items: ProductData) {
+        fun bind(item: ProductData) {
             with(binding) {
-                productCode.text = items.code.toString()
-                productNameTitle.text = items.name
-                productCount.text = items.count.toString()
-                productPrice.text = items.price.toString()
-                productInitialPrice.text = items.initialPrice.toString()
-                firmaName.text = items.firma
+                productCode.text = item.code.toString()
+                productNameTitle.text = item.name
+                productCount.text = item.count.toString()
+                productPrice.text = item.price.toString()
+                productInitialPrice.text = item.initialPrice.toString()
+                firmaName.text = item.firma
             }
         }
 
