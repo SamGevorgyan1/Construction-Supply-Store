@@ -23,7 +23,6 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
             override fun onSuccess(data: List<ProductData>) {
                 _resultsLiveData.value = data
             }
-
             override fun onError(msg: Exception) {
                 Log.e("error", "error")
             }
@@ -39,10 +38,10 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
 
     /**
     fun getDocumentId(
-        collectionPath: String,
-        fieldValue: Any,
-        fieldName: String,
-        callback: (String?) -> Unit
+    collectionPath: String,
+    fieldValue: Any,
+    fieldName: String,
+    callback: (String?) -> Unit
     ) = productRepository.getDocumentId(collectionPath, fieldValue, fieldName, callback)
-**/
+     **/
 }

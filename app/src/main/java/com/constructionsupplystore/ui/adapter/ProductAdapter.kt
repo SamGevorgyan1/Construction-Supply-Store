@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.constructionsupplystore.listener.OnItemListener
 import com.data.ProductData
 import com.constructionsupplystore.databinding.AdapterProductsBinding
 import java.util.*
 
-class ProductAdapter(val onItemListener: OnItemListener) :
+
+class ProductAdapter(val onItemClickListener: ((productData: ProductData, boolean: Boolean) -> Unit)) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>(), Filterable {
 
     private var items: MutableList<ProductData> = mutableListOf()
@@ -50,6 +49,7 @@ class ProductAdapter(val onItemListener: OnItemListener) :
         notifyItemRemoved(position)
     }
 
+
     inner class ViewHolder(private val binding: AdapterProductsBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
@@ -62,33 +62,29 @@ class ProductAdapter(val onItemListener: OnItemListener) :
                 productInitialPrice.text = item.initialPrice.toString()
                 firmaName.text = item.firma
             }
+
         }
 
         init {
             binding.codeTitle.setOnClickListener(this)
-            binding.productNameTitle.setOnClickListener(this)
             binding.productCountTitle.setOnClickListener(this)
             binding.initialPriceTitle.setOnClickListener(this)
             binding.btnDelete.setOnClickListener(this)
             binding.btnChange.setOnClickListener(this)
+            binding.productNameTitle.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
             val position = adapterPosition
             val product = filteredItems.getOrNull(position)
             when (v) {
-                binding.btnDelete -> if (position != RecyclerView.NO_POSITION) {
-                    if (product != null) {
-                        onItemListener.onDeleteItemClick(position, product)
+                binding.btnDelete ->
+                    if (position != RecyclerView.NO_POSITION && product != null) {
+                        onItemClickListener(items[adapterPosition], false)
+                        removeItem(position)
                     }
-                    removeItem(position)
-                }
-                binding.btnChange -> if (position != RecyclerView.NO_POSITION) {
-                    if (product != null) {
-                        onItemListener.onChangeItemClick(position, product)
-                    }
-                }
-                else -> Toast.makeText(context, "click not work", Toast.LENGTH_SHORT).show()
+
+                else -> onItemClickListener(items[adapterPosition], true)
             }
         }
     }
@@ -115,6 +111,6 @@ class ProductAdapter(val onItemListener: OnItemListener) :
             notifyDataSetChanged()
         }
     }
-
-
 }
+
+
