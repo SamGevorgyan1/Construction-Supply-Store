@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.data.ProductData
 import com.repository.ProductRepository
 import com.ResultCallBack
-import com.ResultCallBack2
 import java.lang.Exception
 
 
@@ -38,12 +37,4 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
     fun changeData(productData: ProductData, fieldValue: String) =
         productRepository.changeData(productData, fieldValue)
 
-    /**
-    fun getDocumentId(
-    collectionPath: String,
-    fieldValue: Any,
-    fieldName: String,
-    callback: (String?) -> Unit
-    ) = productRepository.getDocumentId(collectionPath, fieldValue, fieldName, callback)
-     **/
 }

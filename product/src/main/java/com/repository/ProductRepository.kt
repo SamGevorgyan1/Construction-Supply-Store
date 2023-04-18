@@ -31,16 +31,14 @@ class ProductRepositoryImpl : ProductRepository {
     private val db = FirebaseFirestore.getInstance()
 
     override fun getProduct(resultCallBack: ResultCallBack<ProductData>) {
-        db.collection(COLLECTION_PATH).get()
-            .addOnSuccessListener { result ->
-                val productList =
-                    result.documents.mapNotNull { it.toObject(ProductData::class.java) }
-                resultCallBack.onSuccess(productList)
-            }
-            .addOnFailureListener { exception ->
-                resultCallBack.onError(exception)
-                Log.i("Error getting product",exception.toString())
-            }
+        db.collection(COLLECTION_PATH).get().addOnSuccessListener { result ->
+            val productList =
+                result.documents.mapNotNull { it.toObject(ProductData::class.java) }
+            resultCallBack.onSuccess(productList)
+        }.addOnFailureListener { exception ->
+            resultCallBack.onError(exception)
+            Log.i("Error getting product", exception.toString())
+        }
     }
 
     override fun addProduct(productData: ProductData) {
@@ -49,10 +47,10 @@ class ProductRepositoryImpl : ProductRepository {
             (createHashMap(productData))
         }
         db.collection(COLLECTION_PATH).add(createHashMap(productData)).addOnSuccessListener {
-            Log.i("${productData.name}","data saved")
+            Log.i("data saved", "$productData")
 
         }.addOnFailureListener {
-            Log.i("Error to add data",it.toString())
+            Log.i("Error to add data", it.toString())
         }
     }
 
@@ -60,10 +58,10 @@ class ProductRepositoryImpl : ProductRepository {
         productData.code?.let { it ->
             getDocumentId(fieldValue = it, fieldName = CODE) { documentId ->
                 val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
-                docRef?.delete()?.addOnSuccessListener{
-                    Log.i("${productData.name}","data deleted")
+                docRef?.delete()?.addOnSuccessListener {
+                    Log.i("data deleted", "$productData")
                 }?.addOnFailureListener {
-                    Log.i("Error to delete data",it.toString())
+                    Log.i("Error to delete data", it.toString())
                 }
             }
         }
@@ -73,24 +71,19 @@ class ProductRepositoryImpl : ProductRepository {
         getDocumentId(fieldValue = fieldValue) { documentId ->
             val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
             docRef?.update(createHashMap(productData))?.addOnSuccessListener {
-                Log.i("${productData.name}","data changed")
+                Log.i("data changed", "$productData")
 
             }?.addOnFailureListener {
-                Log.i("Error to change data",it.toString())
+                Log.i("Error to change data", it.toString())
             }
         }
     }
 
 
     override fun getDocumentId(
-        collectionPath: String,
-        fieldValue: Any,
-        fieldName: String,
-        callback: (String?) -> Unit
+        collectionPath: String, fieldValue: Any, fieldName: String, callback: (String?) -> Unit
     ) {
-        db.collection(collectionPath)
-            .whereEqualTo(fieldName, fieldValue)
-            .get()
+        db.collection(collectionPath).whereEqualTo(fieldName, fieldValue).get()
             .addOnSuccessListener { documents ->
                 if (documents.isEmpty) {
                     callback(null)
@@ -104,29 +97,15 @@ class ProductRepositoryImpl : ProductRepository {
             }
     }
 
+}
 
-
-
-    /**
-        db.collection(COLLECTION_PATH).get()
-            .addOnSuccessListener { result ->
-                val productList =
-                    result.documents.mapNotNull { it.toObject(ProductData::class.java) }
-                return ResultCallBack2.Success(productList)
-            }
-            .addOnFailureListener { exception ->
-                return ResultCallBack2.Error(exception)
-            }
-        **/
-    }
-
-    private fun createHashMap(productData: ProductData): Map<String, String?> {
-        return hashMapOf(
-            NAME to productData.name,
-            FIRMA to productData.firma,
-            CODE to productData.code,
-            COUNT to productData.count,
-            INITIAL_PRICE to productData.initialPrice,
-            PRICE to productData.price,
-        )
-    }
+private fun createHashMap(productData: ProductData): Map<String, String?> {
+    return hashMapOf(
+        NAME to productData.name,
+        FIRMA to productData.firma,
+        CODE to productData.code,
+        COUNT to productData.count,
+        INITIAL_PRICE to productData.initialPrice,
+        PRICE to productData.price,
+    )
+}
