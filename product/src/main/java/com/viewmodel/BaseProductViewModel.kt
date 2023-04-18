@@ -25,7 +25,7 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
             }
 
             override fun onError(msg: Exception) {
-                Log.e("error", "error")
+                Log.e("error getting data",msg.toString() )
             }
         })
     }

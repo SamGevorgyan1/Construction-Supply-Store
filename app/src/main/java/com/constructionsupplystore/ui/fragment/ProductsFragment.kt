@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import com.common.basecommon.BaseCommonFragment
+import com.common.utils.replaceFragment
 import com.constructionsupplystore.R
 import com.data.ProductData
 import com.constructionsupplystore.databinding.FragmentProductsBinding
