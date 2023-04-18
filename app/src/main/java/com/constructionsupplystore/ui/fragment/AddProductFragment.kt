@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.common.basecommon.BaseCommonFragment
+import com.common.utils.checkEdtText
 import com.data.ProductData
 import com.constructionsupplystore.databinding.FragmentAddProductBinding
 import com.constructionsupplystore.ui.viewmodel.ProductViewModel

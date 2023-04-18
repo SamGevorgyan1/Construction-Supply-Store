@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.common.basecommon.BaseCommonFragment
+import com.common.utils.replaceFragment
 import com.constructionsupplystore.R
 import com.data.ProductData
 import com.constructionsupplystore.databinding.FragmentChangeProductBinding

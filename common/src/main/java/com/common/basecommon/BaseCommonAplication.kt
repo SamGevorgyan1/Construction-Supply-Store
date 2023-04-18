@@ -7,15 +7,16 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import org.koin.core.module.Module
 
-abstract class BaseCommonApplication:Application() {
+abstract class BaseCommonApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin{
+        startKoin {
             androidContext(this@BaseCommonApplication)
             androidLogger(Level.DEBUG)
             modules(getKoinModules())
         }
     }
+
     abstract fun getKoinModules(): List<Module>
 }
