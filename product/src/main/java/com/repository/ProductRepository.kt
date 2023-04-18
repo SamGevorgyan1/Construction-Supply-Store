@@ -39,28 +39,45 @@ class ProductRepositoryImpl : ProductRepository {
             }
             .addOnFailureListener { exception ->
                 resultCallBack.onError(exception)
+                Log.i("Error getting product",exception.toString())
             }
     }
 
     override fun addProduct(productData: ProductData) {
 
-        db.collection(COLLECTION_PATH).add(createHashMap(productData))
+        db.collection(COLLECTION_PATH).add {
+            (createHashMap(productData))
+        }
+        db.collection(COLLECTION_PATH).add(createHashMap(productData)).addOnSuccessListener {
+            Log.i("${productData.name}","data saved")
+
+        }.addOnFailureListener {
+            Log.i("Error to add data",it.toString())
+        }
     }
 
     override fun deleteData(productData: ProductData) {
         productData.code?.let { it ->
             getDocumentId(fieldValue = it, fieldName = CODE) { documentId ->
                 val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
-                docRef?.delete()
+                docRef?.delete()?.addOnSuccessListener{
+                    Log.i("${productData.name}","data deleted")
+                }?.addOnFailureListener {
+                    Log.i("Error to delete data",it.toString())
+                }
             }
         }
     }
 
     override fun changeData(productData: ProductData, fieldValue: String) {
         getDocumentId(fieldValue = fieldValue) { documentId ->
-
             val docRef = documentId?.let { db.collection(COLLECTION_PATH).document(it) }
-            docRef?.update(createHashMap(productData))
+            docRef?.update(createHashMap(productData))?.addOnSuccessListener {
+                Log.i("${productData.name}","data changed")
+
+            }?.addOnFailureListener {
+                Log.i("Error to change data",it.toString())
+            }
         }
     }
 
@@ -88,6 +105,21 @@ class ProductRepositoryImpl : ProductRepository {
     }
 
 
+
+
+    /**
+        db.collection(COLLECTION_PATH).get()
+            .addOnSuccessListener { result ->
+                val productList =
+                    result.documents.mapNotNull { it.toObject(ProductData::class.java) }
+                return ResultCallBack2.Success(productList)
+            }
+            .addOnFailureListener { exception ->
+                return ResultCallBack2.Error(exception)
+            }
+        **/
+    }
+
     private fun createHashMap(productData: ProductData): Map<String, String?> {
         return hashMapOf(
             NAME to productData.name,
@@ -98,4 +130,3 @@ class ProductRepositoryImpl : ProductRepository {
             PRICE to productData.price,
         )
     }
-}

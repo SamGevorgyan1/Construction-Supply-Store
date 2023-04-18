@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.data.ProductData
 import com.repository.ProductRepository
 import com.ResultCallBack
+import com.ResultCallBack2
 import java.lang.Exception
 
 
@@ -23,6 +24,7 @@ abstract class BaseProductViewModel(private val productRepository: ProductReposi
             override fun onSuccess(data: List<ProductData>) {
                 _resultsLiveData.value = data
             }
+
             override fun onError(msg: Exception) {
                 Log.e("error", "error")
             }

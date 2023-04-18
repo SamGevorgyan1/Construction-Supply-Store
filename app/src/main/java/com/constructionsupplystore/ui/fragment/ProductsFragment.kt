@@ -75,4 +75,6 @@ class ProductsFragment : BaseCommonFragment() {
         super.onResume()
         viewModel.getProduct()
     }
+
+
 }
